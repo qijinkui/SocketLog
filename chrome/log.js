@@ -24,7 +24,10 @@ function(logs)
               return ;
             }
 
-            if('alert'==log.type)
+	    if('json'==log.type)
+            {
+                console['info'](JSON.parse(log.msg));
+            }else if('alert'==log.type)
             {
                 alert(log.msg); 
             }
